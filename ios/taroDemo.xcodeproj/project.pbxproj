@@ -14,6 +14,7 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		1649CAA040364EBAA3702B26 /* Outfit-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 750FCF86AD3A4D4E8C38FAF1 /* Outfit-ExtraBold.ttf */; };
+		17A94CB054936164B3331457 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = F30D77CB499CF523B6F1549F /* PrivacyInfo.xcprivacy */; };
 		17F95EDCD55E47BE992BAE40 /* Outfit-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 68E787F38F9A422E95BE9B6B /* Outfit-Regular.ttf */; };
 		3367DC93ED6D45E7A87BF1F2 /* Outfit-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4876388B701048FE8E0F0BE2 /* Outfit-Thin.ttf */; };
 		579F4B7496BF069C27C20BC7 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064FE7D59874E5A1126C807C /* ExpoModulesProvider.swift */; };
@@ -71,6 +72,7 @@
 		B10D79FE8D68460E821FF9EF /* Outfit-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Outfit-ExtraLight.ttf"; path = "../assets/fonts/Outfit-ExtraLight.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED392737ABFDE2508D91B66F /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-taroDemo/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
+		F30D77CB499CF523B6F1549F /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = taroDemo/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				F30D77CB499CF523B6F1549F /* PrivacyInfo.xcprivacy */,
 			);
 			name = taroDemo;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				C4990DC4F4F74AC9939F3946 /* Outfit-SemiBold.ttf in Resources */,
 				3367DC93ED6D45E7A87BF1F2 /* Outfit-Thin.ttf in Resources */,
 				A07AF11BD6EF424B82AF7EAD /* Outfit-VariableFont_wght.ttf in Resources */,
+				17A94CB054936164B3331457 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -722,11 +726,7 @@
 					"-DFOLLY_USE_LIBCPP=1",
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-Wl",
-					"-ld_classic",
-				);
+				OTHER_LDFLAGS = "$(inherited)";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;
@@ -794,11 +794,7 @@
 					"-DFOLLY_USE_LIBCPP=1",
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-Wl",
-					"-ld_classic",
-				);
+				OTHER_LDFLAGS = "$(inherited)";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;

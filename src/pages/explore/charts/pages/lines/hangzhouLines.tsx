@@ -3,7 +3,7 @@ import Taro from '@tarojs/taro';
 import { useEffect, useState } from 'react';
 import Chart from '../../echarts';
 import '../style.scss';
-import 'echarts/extension-src/bmap/bmap'
+import 'echarts/extension/bmap/bmap'
 
 export default function hangzhouLines() {
   const [option, setOption] = useState<any>();
