@@ -56,7 +56,7 @@ import {
 import { View } from '@tarojs/components';
 import { LabelLayout, UniversalTransition } from 'echarts/features';
 import { useEffect, useRef } from 'react';
-import { SVGRenderer, SkiaChart as SkiaComponent, SvgChart as SvgComponent } from '@wuba/react-native-echarts';
+import { SVGRenderer, SkiaRenderer, SkiaChart as SkiaComponent, SvgChart as SvgComponent } from '@wuba/react-native-echarts';
 import '../style.scss';
 
 // 通过 ComposeOption 来组合出一个只有必须组件和图表的 Option 类型
@@ -111,6 +111,7 @@ echarts.use([
   LabelLayout,
   UniversalTransition,
   SVGRenderer,
+  SkiaRenderer,
   LegendComponent,
   MarkLineComponent,
   MarkPointComponent,
@@ -132,13 +133,14 @@ export default function GraphForceDynamic() {
   const svgRef = useRef<any>(null);
   const skiaRef = useRef<any>(null);
 
-  const runChart = refObject => {
+  const runChart = (refObject, renderer = "svg") => {
     let myChart;
     let inter;
     if (refObject.current) {
       // @ts-ignore
       myChart = echarts.init(refObject.current, 'light', {
-        renderer: 'svg',
+        // @ts-ignore
+        renderer,
         width: E_WIDTH,
         height: E_HEIGHT
       });
@@ -200,7 +202,7 @@ export default function GraphForceDynamic() {
 
   useEffect(() => runChart(svgRef), []);
 
-  useEffect(() => runChart(skiaRef), []);
+  useEffect(() => runChart(skiaRef, 'skia'), []);
 
   return (
     <View>

@@ -48,7 +48,7 @@ import {
 import { LabelLayout, UniversalTransition } from 'echarts/features';
 import { useEffect, useRef } from 'react';
 import { Dimensions } from 'react-native';
-import { SVGRenderer, SkiaChart as SkiaComponent, SvgChart as SvgComponent } from '@wuba/react-native-echarts';
+import { SVGRenderer, SkiaRenderer, SkiaChart as SkiaComponent, SvgChart as SvgComponent } from '@wuba/react-native-echarts';
 import { View } from '@tarojs/components';
 
 import './echarts.scss';
@@ -95,6 +95,7 @@ echarts.use([
   LabelLayout,
   UniversalTransition,
   SVGRenderer,
+  SkiaRenderer,
   LegendComponent,
   MarkLineComponent,
   MarkPointComponent,
@@ -135,7 +136,8 @@ export default function EchartsPage({ option, width = E_WIDTH, height = E_HEIGHT
     if (skiaRef.current) {
       // @ts-ignore
       chart = echarts.init(skiaRef.current, 'light', {
-        renderer: 'svg',
+        // @ts-ignore
+        renderer: 'skia',
         width,
         height
       });
