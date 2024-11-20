@@ -1,6 +1,7 @@
 package com.tarodemo.devmanager
 
 import android.app.Application
+import com.facebook.react.JSEngineResolutionAlgorithm
 import com.facebook.react.PackageList
 import com.facebook.react.ReactPackage
 import com.facebook.react.defaults.DefaultReactNativeHost
@@ -19,9 +20,12 @@ open class TaroReactNativeHost(application: Application) : DefaultReactNativeHos
             add(DevManagerPackage())
         }
     }
+    override fun getJSEngineResolutionAlgorithm(): JSEngineResolutionAlgorithm? {
+        return if (isHermesEnabled) JSEngineResolutionAlgorithm.HERMES else super.getJSEngineResolutionAlgorithm()
+    }
 
     override var isNewArchEnabled: Boolean = BuildConfig.IS_NEW_ARCHITECTURE_ENABLED
 
-    override var isHermesEnabled: Boolean = BuildConfig.IS_NEW_ARCHITECTURE_ENABLED
+    override var isHermesEnabled: Boolean = BuildConfig.IS_HERMES_ENABLED
 
 }
