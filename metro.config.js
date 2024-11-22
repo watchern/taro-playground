@@ -1,5 +1,9 @@
-const {getDefaultConfig, mergeConfig} = require('@react-native/metro-config');
-const { getMetroConfig } = require('@tarojs/rn-supporter')
+const { getDefaultConfig, mergeConfig } = require('@react-native/metro-config');
+const { getMetroConfig } = require('@tarojs/rn-supporter');
+
+const {
+  wrapWithReanimatedMetroConfig,
+} = require('react-native-reanimated/metro-config');
 
 /**
  * Metro configuration
@@ -9,6 +13,8 @@ const { getMetroConfig } = require('@tarojs/rn-supporter')
  */
 const config = {};
 
-module.exports = (async function (){
-    return mergeConfig(getDefaultConfig(__dirname), await getMetroConfig(), config)
-})()
+module.exports = (async function () {
+  return wrapWithReanimatedMetroConfig(
+    mergeConfig(getDefaultConfig(__dirname), await getMetroConfig(), config)
+  );
+})();
