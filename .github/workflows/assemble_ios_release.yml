@@ -14,6 +14,7 @@ on:
 env:
   # 应用的application_id
   APP_ID: ${{secrets.APP_ID}}
+  # 应用名称
   APP_NAME: Taro
   VERSION_NUMBER: 1.11.0
   BUILD_NUMBER: 1.11.0.1
@@ -27,6 +28,7 @@ env:
   APP_STORE_CONNECT_USERNAME: ${{secrets.APP_STORE_CONNECT_USERNAME}}
   APP_STORE_CONNECT_PASSWORD: ${{secrets.APP_STORE_CONNECT_PASSWORD}}
 
+# 工作流作业
 jobs:
   assemble:
     runs-on: macos-13
@@ -37,7 +39,7 @@ jobs:
       - name: Checkout Project
         uses: actions/checkout@v2
       - name: Cache node_modules Folder
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ${{ github.workspace }}/node_modules
           key: ${{ runner.os }}-node_modules
