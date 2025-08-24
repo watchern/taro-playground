@@ -48,7 +48,7 @@ jobs:
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
       - name: Cache Yarn
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         env:
           cache-name: yarn-cache
         with:
@@ -57,7 +57,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
       - name: Cache Pods
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ios/Pods
           key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
