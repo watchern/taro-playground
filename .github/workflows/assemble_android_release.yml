@@ -72,11 +72,21 @@ jobs:
           key: ${{ runner.os }}-gradle
           restore-keys: |
             ${{ runner.os }}-gradle
+      - name: Set up Ruby
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: 3.2
+          # bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+        # - run: bundle install
+        # - run: bundle exec fastlane assemble
       - name: Assemble Android ${{ env.BUILD_TYPE }}
         run: |
-          sudo apt install -y ruby-bundler
+          # gem install bundler
           cd android
+          # bundle install -v '2.2.7'
+          gem install bundler -v 2.2.7
           bundle update
+          gem list bundler
           bundle exec fastlane assemble
         env:
           KEYSTORE_FILE: ${{ github.workspace }}/android/app/${{ env.KEYSTORE_FILE }}
