@@ -13,9 +13,9 @@ on:
 # 工作流环境变量
 env:
   # 应用的application_id
-  APP_ID: ${{secrets.APP_ID}}
+  APP_ID: com.taro.demo
   # 应用名称
-  APP_NAME: Taro
+  APP_NAME: Taro Demo
   # 打包类型
   BUILD_TYPE: release
   # 版本名称
@@ -25,11 +25,11 @@ env:
   # 密钥库文件
   KEYSTORE_FILE: release.keystore
   # 密钥库口令
-  KEYSTORE_PASSWORD: ${{secrets.RELEASE_KEYSTORE_PASSWORD}}
+  KEYSTORE_PASSWORD: android
   # 密钥库别名
-  KEYSTORE_KEY_ALIAS: android
+  KEYSTORE_KEY_ALIAS: androiddebugkey
   # 密钥库别名口令
-  KEYSTORE_KEY_PASSWORD: ${{secrets.RELEASE_KEYSTORE_PASSWORD}}
+  KEYSTORE_KEY_PASSWORD: android
 
 # 工作流作业
 jobs:
@@ -76,21 +76,19 @@ jobs:
         uses: actions/setup-ruby@v1
         with:
           ruby-version: 3.2
-          # bundler-cache: true # runs 'bundle install' and caches installed gems automatically
-        # - run: bundle install
-        # - run: bundle exec fastlane assemble
       - name: Assemble Android ${{ env.BUILD_TYPE }}
         run: |
           # gem install bundler
           # 清除 npm/yarn 缓存
-          yarn cache clean
+          # yarn cache clean
 
+          cd android
           # 清除 Gradle 缓存（Android）
-          cd android && ./gradlew clean
+          # cd android && ./gradlew clean
           # bundle install -v '2.2.7'
-          gem install bundler -v 2.2.7
+          # gem install bundler -v 2.2.7
           bundle update
-          gem list bundler
+          # gem list bundler
           bundle exec fastlane assemble
         env:
           KEYSTORE_FILE: ${{ github.workspace }}/android/app/${{ env.KEYSTORE_FILE }}
