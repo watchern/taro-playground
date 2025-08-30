@@ -14,7 +14,13 @@ const {
 const config = {};
 
 module.exports = (async function () {
-  return wrapWithReanimatedMetroConfig(
-    mergeConfig(getDefaultConfig(__dirname), await getMetroConfig(), config)
-  );
+  let metroConfigTRN = await getMetroConfig()
+  let metroConfigRN = getDefaultConfig(__dirname)
+  let customConfig = wrapWithReanimatedMetroConfig(
+    mergeConfig(metroConfigRN, metroConfigTRN, config)
+  )
+  console.log('metroConfigTRN', metroConfigTRN)
+  console.log('defaultConfigRN', metroConfigRN)
+  console.log('customMetroConfig', customConfig)
+  return customConfig;
 })();

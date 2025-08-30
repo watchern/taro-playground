@@ -82,7 +82,11 @@ jobs:
       - name: Assemble Android ${{ env.BUILD_TYPE }}
         run: |
           # gem install bundler
-          cd android
+          # 清除 npm/yarn 缓存
+          yarn cache clean
+
+          # 清除 Gradle 缓存（Android）
+          cd android && ./gradlew clean
           # bundle install -v '2.2.7'
           gem install bundler -v 2.2.7
           bundle update

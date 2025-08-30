@@ -106,7 +106,7 @@ const config = {
     },
     sass: {
       api: 'modern-compiler', // 修改api调用方式
-      additionalData: `
+      additionalData: `/*scss样式全局引入---math计算;scss变量*/
         @use "sass:math";
         @use "@/styles/variables.scss" as *;
       `,
