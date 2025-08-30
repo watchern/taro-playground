@@ -75,9 +75,13 @@ jobs:
           key: ${{ runner.os }}-gradle
           restore-keys: |
             ${{ runner.os }}-gradle
+      - name: Set up Ruby
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: 3.2
       - name: Assemble Android ${{ env.BUILD_TYPE }}
         run: |
-          sudo apt install -y ruby-bundler
+          # sudo apt install -y ruby-bundler
           cd android
           bundle update
           bundle exec fastlane assemble

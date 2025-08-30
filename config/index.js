@@ -7,16 +7,16 @@ const CIPluginOpt = {
     privateKeyPath: "key/private.appid.key"
   },
   tt: {
-    email: "字节小程序邮箱",
-    password: "字节小程序密码"
+    email: process.env.TT_EMAIL || "字节小程序邮箱",
+    password: process.env.TT_PWD || "字节小程序密码"
   },
   alipay: {
-    appid: "支付宝小程序appId",
-    toolId: "工具id",
+    appid: process.env.ALI_APPID || "支付宝小程序appId",
+    toolId: process.env.ALI_TOOL_ID || "工具id",
     privateKeyPath: "key/pkcs8-private-pem"
   },
   swan: {
-    token: "鉴权需要的token令牌"
+    token: process.env.SWAN_TOKEN || "鉴权需要的token令牌"
   },
   version,
   desc: "修复已知问题"
@@ -110,7 +110,6 @@ const config = {
         @use "sass:math";
         @use "@/styles/variables.scss" as *;
       `,
-
     }
   },
   alias: {
