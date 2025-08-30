@@ -23,7 +23,7 @@ env:
   # 版本号
   VERSION_CODE: 111000
   # 密钥库文件
-  KEYSTORE_FILE: debug.keystore
+  KEYSTORE_FILE: release.keystore
   # 密钥库口令
   KEYSTORE_PASSWORD: ${{secrets.RELEASE_KEYSTORE_PASSWORD}}
   # 密钥库别名

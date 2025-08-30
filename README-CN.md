@@ -186,6 +186,12 @@ env:
 ```
 
 为了您应用程序的安全性，请重新生成.Keystore文件并将密码存储在您的github加密配置中。
+default.keystore
+别名 android
+密码 123456
+debug.keystore
+别名 androiddebugkey
+密码 android
 #### 阅读更多
 
 1. [app signing](https://developer.android.com/studio/publish/app-signing)
