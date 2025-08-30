@@ -105,7 +105,12 @@ const config = {
       // androidSourcemapSourcesRoot: '',
     },
     sass: {
-      additionalData: '@use "sass:math";'
+      api: 'modern-compiler', // 修改api调用方式
+      additionalData: `
+        @use "sass:math";
+        @use "@/styles/variables.scss" as *;
+      `,
+
     }
   },
   alias: {
@@ -113,6 +118,7 @@ const config = {
     '@/utils': path.resolve(__dirname, '..', 'src/pages/utils'),
     '@/assets': path.resolve(__dirname, '..', 'src/assets'),
     '@/platform': path.resolve(__dirname, '..', 'src/platform'),
+    '@': path.resolve(__dirname, '..', 'src'), // 放在最后匹配识别
   }
 }
 
