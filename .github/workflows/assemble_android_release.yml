@@ -67,8 +67,8 @@ jobs:
       - name: Build Taro React Native Bundle
         run: |
           yarn build:rn --reset-cache --platform android
-        if: ${{ env.BUILD_TYPE == 'release' }}
-          rm -rf ${{ github.workspace }}/android/app/src/main/assets/index.android.map
+        # if: ${{ env.BUILD_TYPE == 'release' }}
+        #   rm -rf ${{ github.workspace }}/android/app/src/main/assets/index.android.map
       - name: Upload bundle Products
         uses: actions/upload-artifact@v4
         with:
