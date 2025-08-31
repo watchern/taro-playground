@@ -84,9 +84,11 @@ jobs:
 #          # 以下路径必须使用根目录相对路径不可使用‘./’开头
 #          cdnpath: .
           iosbundleoutput: dist/ios/main.js
-          iosassetsdest: dist/ios
+          iosassetsdest: dist/ios/assets
           androidbundleoutput: dist/android/index.android.js
-          androidassetsdest: dist/android
+          androidassetsdest: dist/android/assets
+          iossourcemapoutput:
+          androidsourcemapoutput:
           logo: https://pic3.58cdn.com.cn/nowater/fangfe/n_v25b1523466b894881b9bdeda7618a8af2.png
       - name: Upload Qr Image
         uses: actions/upload-artifact@v4
