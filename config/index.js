@@ -42,10 +42,8 @@ const config = {
   defineConstants: {
   },
   copy: {
-    patterns: [
-    ],
-    options: {
-    }
+    patterns: [],
+    options: {}
   },
   framework: "react",
   compiler: {
@@ -58,9 +56,7 @@ const config = {
     postcss: {
       pxtransform: {
         enable: true,
-        config: {
-
-        }
+        config: {}
       },
       url: {
         enable: true,
@@ -98,15 +94,15 @@ const config = {
   rn: {
     appName: 'taroDemo',
     output: {
-      iosAssetsDest:      './ios',
-      ios:                './ios/main.jsbundle',
+      iosAssetsDest:      './dist/ios',
+      ios:                './dist/ios/main.js',// bundle
       // iosSourceMapUrl: '',
-      iosSourcemapOutput: './ios/main.map',
+      iosSourcemapOutput: './dist/ios/main.js.map',
       // iosSourcemapSourcesRoot: '',
-      androidAssetsDest:      './android/app/src/main/res',
-      android:                './android/app/src/main/assets/index.android.bundle',
+      androidAssetsDest:      './dist/android',
+      android:                './dist/android/main.js',
       // androidSourceMapUrl: '',
-      androidSourcemapOutput: './android/app/src/main/assets/index.android.map',
+      androidSourcemapOutput: './dist/android/main.js.map',
       // androidSourcemapSourcesRoot: '',
     },
     sass: {

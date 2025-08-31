@@ -83,10 +83,10 @@ jobs:
           appname: TaroDemo
 #          # 以下路径必须使用根目录相对路径不可使用‘./’开头
 #          cdnpath: .
-#          iosbundleoutput: ios/main.jsbundle
-#          iosassetsdest: ios
-#          androidbundleoutput: android/app/src/main/assets/index.android.bundle
-#          androidassetsdest: android/app/src/main/res
+          iosbundleoutput: dist/ios/main.js
+          iosassetsdest: dist/ios
+          androidbundleoutput: dist/android/index.android.js
+          androidassetsdest: dist/android
           logo: https://pic3.58cdn.com.cn/nowater/fangfe/n_v25b1523466b894881b9bdeda7618a8af2.png
       - name: Upload Qr Image
         uses: actions/upload-artifact@v4
