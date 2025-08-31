@@ -68,7 +68,6 @@ jobs:
         run: |
           yarn build:rn --reset-cache --platform android
         if: ${{ env.BUILD_TYPE == 'release' }}
-        # release 删除 map
           rm -rf ${{ github.workspace }}/android/app/src/main/assets/index.android.map
       - name: Upload bundle Products
         uses: actions/upload-artifact@v4
