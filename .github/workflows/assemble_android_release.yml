@@ -79,7 +79,7 @@ jobs:
         uses: zhiqingchen/taro-react-native-release@v1
         with:
           # token 用于保存release内容
-          # token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           appname: Taro-Mortgage-calculator
           logo: https://pic3.58cdn.com.cn/nowater/fangfe/n_v25b1523466b894881b9bdeda7618a8af2.png
       - name: Upload Qr Image
