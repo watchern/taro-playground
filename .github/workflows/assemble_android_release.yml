@@ -66,6 +66,8 @@ jobs:
       - name: Build Taro React Native Bundle
         run: |
           yarn build:rn --platform android
+        if: ${{ env.BUILD_TYPE == 'release' }}
+          rm -rf ${{ github.workspace }}/android/app/src/main/assets/index.android.map
       - name: Cache Gradle
         uses: actions/cache@v3
         env:
@@ -86,6 +88,12 @@ jobs:
           bundle exec fastlane assemble
         env:
           KEYSTORE_FILE: ${{ github.workspace }}/android/app/${{ env.KEYSTORE_FILE }}
+      - name: Upload bundle Products
+        uses: actions/upload-artifact@v4
+        with:
+          name: bundle-${{ env.BUILD_TYPE }}
+          #/android/app/src/main/assets/index.android.bundle
+          path: ${{ github.workspace }}/android/app/src/main/assets
       - name: Upload Android Products
         uses: actions/upload-artifact@v4
         with:
