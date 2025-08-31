@@ -94,12 +94,12 @@ const config = {
   rn: {
     appName: 'taroDemo',
     output: {
-      iosAssetsDest:      './dist/ios',
+      iosAssetsDest:      './dist/ios/assets',
       ios:                './dist/ios/main.js',// bundle
       // iosSourceMapUrl: '',
       iosSourcemapOutput: './dist/ios/main.js.map',
       // iosSourcemapSourcesRoot: '',
-      androidAssetsDest:      './dist/android',
+      androidAssetsDest:      './dist/android/assets',
       android:                './dist/android/main.js',
       // androidSourceMapUrl: '',
       androidSourcemapOutput: './dist/android/main.js.map',
