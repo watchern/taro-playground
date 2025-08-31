@@ -37,7 +37,7 @@ const config = {
     828: 1.81 / 2
   },
   sourceRoot: 'src',
-  outputRoot: 'dist',
+  outputRoot: `dist/${process.env.TARO_ENV}`,
   plugins,
   defineConstants: {
   },
@@ -47,8 +47,13 @@ const config = {
     options: {
     }
   },
-  framework: 'react',
-  compiler: 'webpack5',
+  framework: "react",
+  compiler: {
+    type: 'webpack5',
+    prebundle: {
+      enable: false,
+    },
+  },
   mini: {
     postcss: {
       pxtransform: {
@@ -117,7 +122,7 @@ const config = {
     '@/utils': path.resolve(__dirname, '..', 'src/pages/utils'),
     '@/assets': path.resolve(__dirname, '..', 'src/assets'),
     '@/platform': path.resolve(__dirname, '..', 'src/platform'),
-    '@': path.resolve(__dirname, '..', 'src'), // 放在最后匹配识别
+    "@src": path.resolve(__dirname, "..", "src"), // 放在最后匹配识别
   }
 }
 
