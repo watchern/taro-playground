@@ -81,6 +81,7 @@ jobs:
           # token 用于保存release内容
           token: ${{ secrets.GITHUB_TOKEN }}
           appname: TaroDemo
+          cdnpath:
           # 以下路径必须使用根目录相对路径不可使用‘./’开头
           iosbundleoutput: ios/main.jsbundle
           iosassetsdest: ios
