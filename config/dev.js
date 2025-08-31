@@ -6,5 +6,10 @@ module.exports = {
   },
   isWatch: true,
   mini: {},
-  h5: {}
+  h5: {
+    devServer: {
+      port: 10086,
+      https: true,
+    },
+  }
 }
