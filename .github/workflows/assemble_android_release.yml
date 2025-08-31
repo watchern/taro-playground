@@ -15,7 +15,7 @@ env:
   # 应用的application_id
   APP_ID: ${{secrets.APP_ID}}
   # 应用名称
-  APP_NAME: taroDemo
+  APP_NAME: TaroDemo
   # 打包类型
   BUILD_TYPE: release
   # 版本名称
@@ -80,7 +80,11 @@ jobs:
         with:
           # token 用于保存release内容
           token: ${{ secrets.GITHUB_TOKEN }}
-          appname: Taro-Mortgage-calculator
+          appname: TaroDemo
+          iosbundleoutput: ./ios/main.jsbundle
+          iosassetsdest: ./ios
+          androidbundleoutput: ./android/app/src/main/assets/index.android.bundle
+          androidassetsdest: ./android/app/src/main/res
           logo: https://pic3.58cdn.com.cn/nowater/fangfe/n_v25b1523466b894881b9bdeda7618a8af2.png
       - name: Upload Qr Image
         uses: actions/upload-artifact@v4
