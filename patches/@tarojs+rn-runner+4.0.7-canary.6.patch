@@ -1,0 +1,48 @@
+diff --git a/node_modules/@tarojs/rn-runner/dist/index.js b/node_modules/@tarojs/rn-runner/dist/index.js
+index 2195e3e..7bc3954 100644
+--- a/node_modules/@tarojs/rn-runner/dist/index.js
++++ b/node_modules/@tarojs/rn-runner/dist/index.js
+@@ -73,7 +73,8 @@ function build(_appPath, config) {
+                     '--custom-log-reporter-path',
+                     '@tarojs/rn-supporter/TerminalReporter'
+                 ].concat(cliParams), {
+-                    stdio: 'inherit'
++                  stdio: 'inherit',
++                  shell: true
+                 });
+                 if (config.qr) {
+                     (0, rn_supporter_1.previewDev)({
+@@ -119,7 +120,8 @@ function build(_appPath, config) {
+                     '--entry-file',
+                     'index.js'
+                 ].concat(cliParams), {
+-                    stdio: 'inherit'
++                    stdio: 'inherit',
++                    shell: true
+                 });
+                 if (config.qr) {
+                     process.on('beforeExit', () => {
+diff --git a/node_modules/@tarojs/rn-runner/src/index.ts b/node_modules/@tarojs/rn-runner/src/index.ts
+index b4cf8d5..a19f64d 100644
+--- a/node_modules/@tarojs/rn-runner/src/index.ts
++++ b/node_modules/@tarojs/rn-runner/src/index.ts
+@@ -67,7 +67,8 @@ export default async function build (_appPath: string, config: any): Promise<any
+         '--custom-log-reporter-path',
+         '@tarojs/rn-supporter/TerminalReporter'
+       ].concat(cliParams), {
+-        stdio: 'inherit'
++        stdio: 'inherit',
++        shell: true
+       })
+       if (config.qr) {
+         previewDev({
+@@ -115,7 +116,8 @@ export default async function build (_appPath: string, config: any): Promise<any
+         '--entry-file',
+         'index.js'
+       ].concat(cliParams), {
+-        stdio: 'inherit'
++        stdio: 'inherit',
++        shell: true
+       })
+       if (config.qr) {
+         process.on('beforeExit', () => {
