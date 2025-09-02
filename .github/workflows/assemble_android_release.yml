@@ -75,27 +75,27 @@ jobs:
           name: bundle-android-${{ env.BUILD_TYPE }}
           #/android/app/src/main/assets/index.android.bundle
           path: ${{ github.workspace }}/android/app/src/main
-#      - name: Cache Gradle
-#        uses: actions/cache@v3
-#        env:
-#          cache-name: gradle-cache
-#        with:
-#          path: ~/.gradle
-#          key: ${{ runner.os }}-gradle
-#          restore-keys: |
-#            ${{ runner.os }}-gradle
-#      - name: Set up Ruby
-#        uses: actions/setup-ruby@v1
-#        with:
-#          ruby-version: 3.2
-#      - name: Assemble Android ${{ env.BUILD_TYPE }}
-#        run: |
-#          # sudo apt install -y ruby-bundler
-#          cd android
-#          bundle update
+      - name: Cache Gradle
+        uses: actions/cache@v3
+        env:
+          cache-name: gradle-cache
+        with:
+          path: ~/.gradle
+          key: ${{ runner.os }}-gradle
+          restore-keys: |
+            ${{ runner.os }}-gradle
+      - name: Set up Ruby
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: 3.2
+      - name: Assemble Android ${{ env.BUILD_TYPE }}
+        run: |
+          # sudo apt install -y ruby-bundler
+          cd android
+          bundle update
 #          bundle exec fastlane assemble
-#        env:
-#          KEYSTORE_FILE: ${{ github.workspace }}/android/app/${{ env.KEYSTORE_FILE }}
+        env:
+          KEYSTORE_FILE: ${{ github.workspace }}/android/app/${{ env.KEYSTORE_FILE }}
       - name: Upload Android Products
         uses: actions/upload-artifact@v4
         with:
