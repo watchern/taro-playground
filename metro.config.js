@@ -4,7 +4,7 @@ const { wrapWithReanimatedMetroConfig } = require('react-native-reanimated/metro
 const { getMetroConfig } = require('@tarojs/rn-supporter');
 
 // 先获取 Taro 的 Metro 配置
-const taroConfig = getMetroConfig();
+const taroConfig = await getMetroConfig();
 
 // 获取 Expo 默认配置并与 Taro 配置合并
 const defaultConfig = getDefaultConfig(__dirname);
@@ -36,5 +36,8 @@ const finalConfig = {
 ;*/
 
 const finalConfig = mergeConfig(defaultConfig, taroConfig, config)
+
 // 应用 Reanimated 配置
-module.exports = wrapWithReanimatedMetroConfig(finalConfig)
+module.exports = (async function () {
+  return wrapWithReanimatedMetroConfig(finalConfig);
+})();
