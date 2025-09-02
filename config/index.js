@@ -42,21 +42,20 @@ const config = {
   defineConstants: {
   },
   copy: {
-    patterns: [],
-    options: {}
+    patterns: [
+    ],
+    options: {
+    }
   },
-  framework: "react",
-  compiler: {
-    type: 'webpack5',
-    prebundle: {
-      enable: false,
-    },
-  },
+  framework: 'react',
+  compiler: 'webpack5',
   mini: {
     postcss: {
       pxtransform: {
         enable: true,
-        config: {}
+        config: {
+
+        }
       },
       url: {
         enable: true,
@@ -94,13 +93,13 @@ const config = {
   rn: {
     appName: 'taroDemo',
     output: {
-      iosAssetsDest: './ios',
       ios: './ios/main.jsbundle',
+      iosAssetsDest: './ios',
+      android: './android/app/src/main/assets/index.android.bundle',
+      androidAssetsDest: './android/app/src/main/res',
       // iosSourceMapUrl: '',
       iosSourcemapOutput: './ios/main.map',
       // iosSourcemapSourcesRoot: '',
-      androidAssetsDest:      './android/app/src/main/res',
-      android:                './android/app/src/main/assets/index.android.bundle',
       // androidSourceMapUrl: '',
       androidSourcemapOutput: './android/app/src/main/assets/index.android.map',
       // androidSourcemapSourcesRoot: '',
@@ -117,6 +116,7 @@ const config = {
     '@/utils': path.resolve(__dirname, '..', 'src/pages/utils'),
     '@/assets': path.resolve(__dirname, '..', 'src/assets'),
     '@/platform': path.resolve(__dirname, '..', 'src/platform'),
+    '@/styles': path.resolve(__dirname, '..', 'src/styles'),
   }
 }
 

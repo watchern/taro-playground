@@ -205,15 +205,6 @@ export default class Index extends Component<never, any> {
 
   render() {
     const { list = [] } = this.state;
-    Taro.setNavigationBarTitle({
-      title: '新标题',
-      success: () => {
-        console.log('成功');
-      },
-      fail: err => {
-        console.log('失败：', err);
-      },
-    })
     return (
       <View className='index'>
         <View className='index-hd'>
