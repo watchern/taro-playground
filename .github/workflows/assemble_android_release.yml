@@ -93,7 +93,7 @@ jobs:
           # sudo apt install -y ruby-bundler
           cd android
           bundle update
-#          bundle exec fastlane assemble
+          bundle exec fastlane assemble
         env:
           KEYSTORE_FILE: ${{ github.workspace }}/android/app/${{ env.KEYSTORE_FILE }}
       - name: Upload Android Products
