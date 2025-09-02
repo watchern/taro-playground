@@ -15,6 +15,7 @@ const defaultConfig = getDefaultConfig(__dirname);
  * @type {import('metro-config').MetroConfig}
  */
 const config = {};
+/*
 const finalConfig = {
   ...defaultConfig,
   ...taroConfig,
@@ -31,8 +32,9 @@ const finalConfig = {
     babelTransformerPath: require.resolve('react-native-svg-transformer')
   },
   ...config
-};
+}
+;*/
 
-// const finalConfig = mergeConfig(defaultConfig, taroConfig, config)
+const finalConfig = mergeConfig(defaultConfig, taroConfig, config)
 // 应用 Reanimated 配置
 module.exports = wrapWithReanimatedMetroConfig(finalConfig)
