@@ -22,6 +22,8 @@ const defaultConfig = getDefaultConfig(__dirname);
 const config = {};
 const finalConfig = mergeConfig(defaultConfig, taroConfig, config)
 
-module.exports = (function () {
-  return wrapWithReanimatedMetroConfig(finalConfig);
+module.exports = (async function () {
+  return wrapWithReanimatedMetroConfig(
+    mergeConfig(defaultConfig, await getMetroConfig(), config)
+  );
 })();
