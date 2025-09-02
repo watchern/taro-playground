@@ -39,5 +39,7 @@ const finalConfig = mergeConfig(defaultConfig, taroConfig, config)
 
 // 应用 Reanimated 配置
 module.exports = (async function () {
-  return wrapWithReanimatedMetroConfig(finalConfig);
+  return wrapWithReanimatedMetroConfig(
+    mergeConfig(getDefaultConfig(__dirname), await getMetroConfig(), config)
+  );
 })();
