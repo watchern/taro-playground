@@ -20,9 +20,6 @@ const defaultConfig = getDefaultConfig(__dirname);
  * @type {import('metro-config').MetroConfig}
  */
 const config = {};
+const finalConfig = mergeConfig(defaultConfig, taroConfig, config)
 
-module.exports = (async function () {
-  return wrapWithReanimatedMetroConfig(
-    mergeConfig(getDefaultConfig(__dirname), await getMetroConfig(), config)
-  );
-})();
+module.exports = wrapWithReanimatedMetroConfig(finalConfig);
