@@ -38,6 +38,6 @@ const finalConfig = {
 
 module.exports = (async function () {
   return wrapWithReanimatedMetroConfig(
-    mergeConfig(finalConfig, getRNDefaultConfig(__dirname), await getMetroConfig(), config)
+    mergeConfig(getRNDefaultConfig(__dirname), await getMetroConfig(), finalConfig, config)
   );
 })();
