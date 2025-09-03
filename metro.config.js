@@ -19,8 +19,25 @@ const expoDefaultConfig = getExpoDefaultConfig(__dirname);
  */
 const config = {};
 
+const finalConfig = {
+  ...expoDefaultConfig,
+  ...taroConfig,
+  resolver: {
+    ...expoDefaultConfig.resolver,
+    ...taroConfig.resolver,
+    // 确保 assetExts 合并而非覆盖
+    assetExts: [...expoDefaultConfig.resolver.assetExts, ...(taroConfig.resolver?.assetExts || [])]
+  },
+  transformer: {
+    ...expoDefaultConfig.transformer,
+    ...taroConfig.transformer,
+    // 保留 Expo 必要的 transformer 配置
+    babelTransformerPath: require.resolve('react-native-svg-transformer')
+  }
+};
+
 module.exports = (async function () {
   return wrapWithReanimatedMetroConfig(
-    mergeConfig(getExpoDefaultConfig(__dirname), getRNDefaultConfig(__dirname), await getMetroConfig(), config)
+    mergeConfig(finalConfig, getRNDefaultConfig(__dirname), await getMetroConfig(), config)
   );
 })();
