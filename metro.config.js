@@ -36,8 +36,13 @@ const finalConfig = {
   }
 };
 
+console.log('expoDefaultConfig', JSON.stringify(expoDefaultConfig))
+console.log('rnDefaultConfig', JSON.stringify(rnDefaultConfig))
+console.log('taroConfig', JSON.stringify(taroConfig))
 module.exports = (async function () {
-  return wrapWithReanimatedMetroConfig(
-    mergeConfig(getRNDefaultConfig(__dirname), await getMetroConfig(), finalConfig, config)
+  let mergedConfig = wrapWithReanimatedMetroConfig(
+    mergeConfig(finalConfig, getRNDefaultConfig(__dirname), await getMetroConfig(), config)
   );
+  console.log('mergedConfig',JSON.stringify(mergedConfig))
+  return mergedConfig
 })();
