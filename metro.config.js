@@ -23,6 +23,6 @@ const config = {};
 
 module.exports = (async function () {
   return wrapWithReanimatedMetroConfig(
-    mergeConfig(expoDefaultConfig, rnDefaultConfig, await getMetroConfig(), config)
+    mergeConfig(getExpoDefaultConfig(__dirname), getRNDefaultConfig(__dirname), await getMetroConfig(), config)
   );
 })();
