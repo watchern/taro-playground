@@ -1,4 +1,4 @@
-@use "../../../styles/variables.scss" as *;
+@import "../../../styles/variables.scss";
 .charts {
     &-container {
         background-color: #fff;
@@ -7,9 +7,7 @@
         text-align: center;
         font-size: 32px;
         color: $color-text-title;
-        /*border-bottom: 1px solid #efefef;*/
-        border: 0 solid #efefef;
-        border-bottom-width: 1px;
+        border-bottom: 1px solid #efefef;
         padding: 10px 0;
     }
 }

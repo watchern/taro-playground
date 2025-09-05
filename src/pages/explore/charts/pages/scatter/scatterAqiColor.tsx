@@ -148,7 +148,7 @@ export default function Index() {
       formatter: function(param) {
         var value = param.value;
         // prettier-ignore
-        return '<div style="/*border-bottom: 1px solid rgba(255,255,255,.3);*/border: 0 solid rgba(255,255,255,.3);border-bottom-width: 1px; font-size: 18px;padding-bottom: 7px;margin-bottom: 7px">'
+        return '<div style="border-bottom: 1px solid rgba(255,255,255,.3); font-size: 18px;padding-bottom: 7px;margin-bottom: 7px">'
                   + param.seriesName + ' ' + value[0] + '日：'
                   + value[7]
                   + '</div>'

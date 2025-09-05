@@ -1,8 +1,9 @@
 const { getDefaultConfig: getRNDefaultConfig, mergeConfig } = require('@react-native/metro-config');
 // metro.config.js
 const { getDefaultConfig: getExpoDefaultConfig } = require('@expo/metro-config');
-const { wrapWithReanimatedMetroConfig } = require('react-native-reanimated/metro-config');
 const { getMetroConfig } = require('@tarojs/rn-supporter');
+
+const { wrapWithReanimatedMetroConfig } = require('react-native-reanimated/metro-config');
 
 // 先获取 Taro 的 Metro 配置
 const taroConfig = getMetroConfig();
@@ -36,13 +37,13 @@ const finalConfig = {
   }
 };
 
-console.log('expoDefaultConfig', JSON.stringify(expoDefaultConfig))
-console.log('rnDefaultConfig', JSON.stringify(rnDefaultConfig))
-console.log('taroConfig', JSON.stringify(taroConfig))
+// console.log('expoDefaultConfig', JSON.stringify(expoDefaultConfig))
+// console.log('rnDefaultConfig', JSON.stringify(rnDefaultConfig))
+// console.log('taroConfig', JSON.stringify(taroConfig))
 module.exports = (async function () {
   let mergedConfig = wrapWithReanimatedMetroConfig(
     mergeConfig(expoDefaultConfig, await getMetroConfig(), config)
   );
-  console.log('mergedConfig-ex', JSON.stringify(mergedConfig))
+  // console.log('mergedConfig-ex', JSON.stringify(mergedConfig))
   return mergedConfig
 })();

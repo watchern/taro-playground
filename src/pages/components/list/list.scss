@@ -1,4 +1,4 @@
-@use "../../../styles/variables.scss" as *;
+@import "../../../styles/variables.scss";
 
 .list {
   &-container{
@@ -35,9 +35,7 @@
       flex: 1;
       display: flex;
       flex-direction: row;
-      /*border-bottom: #e5e5e5 solid 1px;*/
-      border: 0 solid #e5e5e5;
-      border-bottom-width: 1px;
+      border-bottom: #e5e5e5 solid 1px;
       padding-right: 30px;
     }
     &-content {
