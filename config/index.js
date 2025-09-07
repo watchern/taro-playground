@@ -1,5 +1,6 @@
 const path = require('path')
 const { version } = require('../package.json')
+const { UnifiedWebpackPluginV5 } = require('weapp-tailwindcss/webpack')
 
 const CIPluginOpt = {
   weapp: {
@@ -23,8 +24,8 @@ const CIPluginOpt = {
 }
 
 const plugins = process.env.TARO_ENV === 'weapp' ? [
-  [ "@tarojs/plugin-mini-ci", CIPluginOpt ],
-  [ "@tarojs/plugin-html"]
+  ["@tarojs/plugin-mini-ci", CIPluginOpt],
+  ["@tarojs/plugin-html"]
 ] : []
 
 const config = {
@@ -39,13 +40,10 @@ const config = {
   sourceRoot: 'src',
   outputRoot: `dist/${process.env.TARO_ENV}`,
   plugins,
-  defineConstants: {
-  },
+  defineConstants: {},
   copy: {
-    patterns: [
-    ],
-    options: {
-    }
+    patterns: [],
+    options: {}
   },
   framework: 'react',
   compiler: 'webpack5',
@@ -53,9 +51,7 @@ const config = {
     postcss: {
       pxtransform: {
         enable: true,
-        config: {
-
-        }
+        config: {}
       },
       url: {
         enable: true,
@@ -70,6 +66,20 @@ const config = {
           generateScopedName: '[name]__[local]___[hash:base64:5]'
         }
       }
+    },
+    webpackChain(chain, webpack) {
+      chain.merge({
+        plugin: {
+          install: {
+            plugin: UnifiedWebpackPluginV5,
+            args: [{
+              appType: 'taro',
+              // 下面个配置，会开启 rem -> rpx 的转化
+              rem2rpx: true
+            }]
+          }
+        }
+      })
     }
   },
   h5: {
@@ -78,8 +88,7 @@ const config = {
     postcss: {
       autoprefixer: {
         enable: true,
-        config: {
-        }
+        config: {}
       },
       cssModules: {
         enable: false, // 默认为 false，如需使用 css modules 功能，则设为 true
