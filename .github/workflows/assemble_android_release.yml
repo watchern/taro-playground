@@ -64,7 +64,7 @@ jobs:
       - name: Install Dependencies
         run: |
           yarn
-      - name: Build Taro React Native Bundle
+      - name: Build Taro React Native Bundle # APK打包无需此项
         run: |
           yarn build:rn --reset-cache --platform android
         # if: ${{ env.BUILD_TYPE == 'release' }}

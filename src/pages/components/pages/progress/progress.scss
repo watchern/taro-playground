@@ -1,4 +1,4 @@
-@import "../../../../styles/variables.scss";
+@use "../../../../styles/variables.scss" as *;
 
 .example-progress {
   font-size: 32px;
