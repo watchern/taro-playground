@@ -9,7 +9,7 @@
     "css": "sass"
   },
   "scripts": {
-    "postinstall": "weapp-tw patch",
+    "postinstall": "patch-package && weapp-tw patch",
     "build:weapp": "taro build --type weapp",
     "build:swan": "taro build --type swan",
     "build:alipay": "taro build --type alipay",
