@@ -116,7 +116,7 @@ const config = {
     sass: {
       additionalData: `/*scss样式全局引入---math计算;scss变量*/
         @use "sass:math";
-        @use "@/styles/variables.scss" as *;
+        /*@use "@/styles/variables.scss" as *;*/
       `,
     }
   },
