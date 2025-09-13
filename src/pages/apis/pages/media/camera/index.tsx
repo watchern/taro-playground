@@ -7,7 +7,7 @@ import "./index.scss";
 /**
  * 媒体-相机
  * TODO:前置摄像头拍摄及录像正常，后置不可以。【Android OPPO Reno6】
- * 
+ *
  */
 export default class PageView extends React.Component<any, any> {
   constructor(props) {
@@ -83,7 +83,7 @@ export default class PageView extends React.Component<any, any> {
         <View className="api-page__body">
           <Camera
             id="camera"
-            className="cammer-content"
+            className="camera-content"
             ref={this.ref}
             onStop={this.handleStop}
             onError={this.handleError}

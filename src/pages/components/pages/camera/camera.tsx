@@ -130,7 +130,7 @@ export default class PageView extends React.Component<IProps, IState> {
               <Camera
                 mode={mode}
                 id="camera"
-                className="cammer-content"
+                className="camera-content"
                 ref={(ref) => this.ref = ref}
                 onStop={this.handleStop}
                 onError={this.handleError}

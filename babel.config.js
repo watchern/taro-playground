@@ -7,7 +7,7 @@ module.exports = {
       ts: true
     }],
     'module:@react-native/babel-preset', "nativewind/babel",
-      ["babel-preset-expo", { jsxImportSource: "nativewind" }],
+    ["babel-preset-expo", { jsxImportSource: "nativewind" }],
   ],
   plugins: ['react-native-reanimated/plugin',]
 }

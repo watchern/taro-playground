@@ -18,7 +18,7 @@ const expoDefaultConfig = getExpoDefaultConfig(__dirname);
  *
  * @type {import('metro-config').MetroConfig}
  */
-const config = { input: './app/global.css' };
+const config = { input: './src/styles/tailwind.scss' };
 
 const finalConfig = {
   ...expoDefaultConfig,
