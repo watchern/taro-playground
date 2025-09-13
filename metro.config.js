@@ -18,7 +18,7 @@ const expoDefaultConfig = getExpoDefaultConfig(__dirname);
  *
  * @type {import('metro-config').MetroConfig}
  */
-const config = {};
+const config = { input: './app/global.css' };
 
 const finalConfig = {
   ...expoDefaultConfig,

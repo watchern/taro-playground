@@ -1,9 +1,7 @@
-@use 'tailwindcss/base' as *;
-@use 'tailwindcss/components' as *;
-@use 'tailwindcss/utilities' as *;
-@use "./styles/variables.scss" as *;
-@use "./styles/mixins.scss";
-@use "./styles/common.scss";
+@import "./styles/tailwind.scss";
+@import "./styles/mixins.scss";
+@import "./styles/common.scss";
+@import "./styles/variables.scss";
 
 // h5
 .taro_page {
