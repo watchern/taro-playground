@@ -89,7 +89,7 @@ const config = {
     output: {
       ios: './ios/main.jsbundle',
       iosAssetsDest: './ios',
-      android: './android/app/src/main/assets/index.android.bundle',
+      android: './android/app/src/main/assets/index.android.jsbundle',
       androidAssetsDest: './android/app/src/main/res',
       // iosSourceMapUrl: '',
       iosSourcemapOutput: './ios/main.map',

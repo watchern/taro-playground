@@ -75,3 +75,4 @@ yarn-error.log
 # taro
 #
 .swc
+/android/app/src/main/assets/index.android.bundle
