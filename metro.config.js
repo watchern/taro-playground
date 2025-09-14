@@ -42,7 +42,7 @@ const finalConfig = {
 // console.log('taroConfig', JSON.stringify(taroConfig))
 module.exports = (async function () {
   let mergedConfig = wrapWithReanimatedMetroConfig(
-    mergeConfig(expoDefaultConfig, await getMetroConfig(), config)
+    mergeConfig(expoDefaultConfig, rnDefaultConfig, await getMetroConfig(), config)
   );
   // console.log('mergedConfig-ex', JSON.stringify(mergedConfig))
   return mergedConfig
