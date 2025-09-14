@@ -1,3 +1,5 @@
+import "./index.scss";
+
 import Taro from "@tarojs/taro";
 import {Component} from "react";
 import {View, Image, Text, ScrollView} from "@tarojs/components";
@@ -5,8 +7,6 @@ import hooksPng from "@/assets/iconpark/aiming.png";
 import routerPng from "@/assets/iconpark/navigation.png";
 import lifecyclePng from "@/assets/iconpark/cycle-arrow.png";
 import stylesPng from "@/assets/iconpark/font-size.png";
-
-import "./index.scss";
 
 const PNGS = {
   hooksPng,
