@@ -1,6 +1,5 @@
 const path = require('path')
 const { version } = require('../package.json')
-const { UnifiedWebpackPluginV5 } = require('weapp-tailwindcss/webpack')
 
 const CIPluginOpt = {
   weapp: {
@@ -24,8 +23,8 @@ const CIPluginOpt = {
 }
 
 const plugins = process.env.TARO_ENV === 'weapp' ? [
-  ["@tarojs/plugin-mini-ci", CIPluginOpt],
-  ["@tarojs/plugin-html"]
+  [ "@tarojs/plugin-mini-ci", CIPluginOpt ],
+  [ "@tarojs/plugin-html"]
 ] : []
 
 const config = {
@@ -66,20 +65,6 @@ const config = {
           generateScopedName: '[name]__[local]___[hash:base64:5]'
         }
       }
-    },
-    webpackChain(chain, webpack) {
-      chain.merge({
-        plugin: {
-          install: {
-            plugin: UnifiedWebpackPluginV5,
-            args: [{
-              appType: 'taro',
-              // 下面个配置，会开启 rem -> rpx 的转化
-              rem2rpx: true
-            }]
-          }
-        }
-      })
     }
   },
   h5: {
@@ -116,7 +101,7 @@ const config = {
     sass: {
       additionalData: `/*scss样式全局引入---math计算;scss变量*/
         @use "sass:math";
-        /*@use "@/styles/variables.scss" as *;*/
+        @use "@/styles/variables.scss" as *;
       `,
     }
   },
