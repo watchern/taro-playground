@@ -1,6 +1,6 @@
 import Taro from "@tarojs/taro";
-import { Component } from "react";
-import { View, Image, Text, ScrollView } from "@tarojs/components";
+import {Component} from "react";
+import {View, Image, Text, ScrollView} from "@tarojs/components";
 import hooksPng from "@/assets/iconpark/aiming.png";
 import routerPng from "@/assets/iconpark/navigation.png";
 import lifecyclePng from "@/assets/iconpark/cycle-arrow.png";
@@ -94,7 +94,7 @@ export default class Index extends Component<never, any> {
 
   render() {
     return (
-      <ScrollView className='index' enableBackToTop style={{ paddingBottom: 80 }}>
+      <ScrollView className='index' enableBackToTop style={{paddingBottom: 80}}>
         <View className='index-hd'>
           <View className='index-desc'>
             <Text className='index-desc_text'>
@@ -102,6 +102,7 @@ export default class Index extends Component<never, any> {
             </Text>
           </View>
         </View>
+        <View className='index-bd'>HELLO-WORD </View>
         <View className='index-bd'>
           <View className='kind-list'>
             {this.state.list
@@ -133,7 +134,7 @@ export default class Index extends Component<never, any> {
                       <View className='kind-list-text'>
                         <Text>{item.name}</Text>
                       </View>
-                      <Image className='kind-list-img' src={item.imgSrc} />
+                      <Image className='kind-list-img' src={item.imgSrc}/>
                     </View>
                     <View className={item.bdClass}>
                       <View className={item.boxClass}>
@@ -147,7 +148,7 @@ export default class Index extends Component<never, any> {
                               <Text className='navigator-text'>
                                 {page.name}
                               </Text>
-                              <View className='navigator-arrow' />
+                              <View className='navigator-arrow'/>
                             </View>
                           );
                         })}
