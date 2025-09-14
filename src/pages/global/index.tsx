@@ -5,7 +5,6 @@ import hooksPng from "@/assets/iconpark/aiming.png";
 import routerPng from "@/assets/iconpark/navigation.png";
 import lifecyclePng from "@/assets/iconpark/cycle-arrow.png";
 import stylesPng from "@/assets/iconpark/font-size.png";
-import tw from 'twrnc';
 
 import "./index.scss";
 
@@ -102,10 +101,6 @@ export default class Index extends Component<never, any> {
               以下将展示 Taro 全局能力。
             </Text>
           </View>
-        </View>
-        <View className="text-[#acc855] text-[100px]">Hello world!</View>
-        <View style={tw`p-4 android:pt-2 bg-white dark:bg-black`}>
-          <Text style={tw`text-md text-black dark:text-white`}>2Hello World</Text>
         </View>
         <View className='index-bd'>
           <View className='kind-list'>
