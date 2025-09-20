@@ -5,6 +5,7 @@ import { View } from "@tarojs/components";
 import VirtualList from "@/platform/virtualList";
 
 import Header from "@/components/head/head";
+import "../../../../styles/variables.scss"
 import "./virtual-list.scss";
 
 function buildData(offset = 0) {

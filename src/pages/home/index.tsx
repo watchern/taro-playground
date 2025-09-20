@@ -11,6 +11,7 @@ import logoPng from "@/assets/common/taro_logo.jpg";
 import scanPng from "@/assets/iconpark/scan-code.png";
 import appStorePng from "@/assets/iconpark/app-store.png";
 import serverPng from "@/assets/iconpark/data-server.png";
+import "../../styles/variables.scss"
 import "./index.scss";
 
 const BUNDLES_KEY = "bundleList";

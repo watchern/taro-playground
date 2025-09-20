@@ -2,11 +2,12 @@ import Taro from '@tarojs/taro'
 import { useState } from 'react'
 import { randomColor } from '@/utils/index'
 import { View, Button, Text } from '@tarojs/components'
+import "../../../styles/variables.scss"
 import './tabBarApis.scss'
 
 /**
  * 界面-菜单栏
- * @returns 
+ * @returns
  */
 const TabBarApis = () => {
   const [count1, setCount1] = useState(0);

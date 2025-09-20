@@ -1,11 +1,11 @@
 import Taro from '@tarojs/taro';
 import { View, Button } from '@tarojs/components';
-
+import "../../../../../styles/variables.scss";
 import './index.scss'
 
 /**
  * 界面-滚动
- * @returns 
+ * @returns
  */
 const Index = () => {
   const _pageScrollTo = (top) => () => {

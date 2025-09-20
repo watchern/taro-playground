@@ -3,7 +3,7 @@ import { Button, View } from '@tarojs/components';
 import { navigateTo } from '@tarojs/taro';
 import Header from "@/components/head/head";
 import Log, { LogType } from "@/components/log";
-
+import "../../../../styles/variables.scss"
 import './page.scss';
 
 interface LifeCycleState {

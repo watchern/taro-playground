@@ -8,6 +8,7 @@
 import { Component } from 'react'
 import Taro, { Current, setClipboardData } from '@tarojs/taro';
 import { WebView, Text, View } from '@tarojs/components';
+import "../../styles/variables.scss"
 import './index.scss';
 
 export default class Index extends Component<any, any> {

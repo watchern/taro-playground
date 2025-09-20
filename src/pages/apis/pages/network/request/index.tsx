@@ -2,12 +2,12 @@ import Taro from '@tarojs/taro';
 import { View, Button, Input } from '@tarojs/components';
 import { useState } from "react";
 import JSONTree from '@/components/jsontree';
-
+import "../../../../../styles/variables.scss";
 import './index.scss'
 
 /**
  * 网络-发起请求
- * @returns 
+ * @returns
  */
 const Index = () => {
   const [data, setData] = useState({});

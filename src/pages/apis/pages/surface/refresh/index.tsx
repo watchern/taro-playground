@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import Taro from '@tarojs/taro';
 import { View, Text, Button } from '@tarojs/components';
-
+import "../../../../../styles/variables.scss";
 import './index.scss';
 
 /**

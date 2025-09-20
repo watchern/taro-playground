@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import Taro from "@tarojs/taro";
 import { Button, View, Text } from "@tarojs/components";
-
+import "../../../../../styles/variables.scss";
 import "./index.scss";
 
 /**
  * 设备-屏幕
- * @returns 
+ * @returns
  */
 const Index = () => {
 

@@ -50,7 +50,7 @@ import { useEffect, useRef } from 'react';
 import { Dimensions } from 'react-native';
 import { SVGRenderer, SkiaRenderer, SkiaChart as SkiaComponent, SvgChart as SvgComponent } from '@wuba/react-native-echarts';
 import { View } from '@tarojs/components';
-
+import "../../../styles/variables.scss"
 import './echarts.scss';
 
 // 注册必须的组件

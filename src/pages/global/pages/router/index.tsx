@@ -2,7 +2,7 @@ import { View, Button } from "@tarojs/components";
 import Header from "@/components/head/head";
 import JSONTree from '@/components/jsontree';
 import { navigateTo, redirectTo, navigateBack, getCurrentPages, switchTab, reLaunch } from '@tarojs/taro';
-
+import "../../../../styles/variables.scss"
 import './index.scss';
 
 let i = 0;

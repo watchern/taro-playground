@@ -4,7 +4,7 @@ import { View, MovableView, MovableArea, Switch, Button } from "@tarojs/componen
 import { MovableViewProps } from "@tarojs/components/types/MovableView";
 
 import Header from "@/components/head/head";
-
+import "../../../../styles/variables.scss"
 import "./movable-view.scss";
 
 const PageView = () => {

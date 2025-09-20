@@ -1,11 +1,12 @@
 import Taro from '@tarojs/taro'
 import { View, Button } from '@tarojs/components'
 import { randomColor } from '@/utils/index'
+import "../../../../../styles/variables.scss";
 import './index.scss'
 
 /**
  * 界面-背景（下拉刷新时的 loading 样式）
- * @returns 
+ * @returns
  */
 const Index = () => {
   return (

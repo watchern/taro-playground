@@ -2,11 +2,12 @@ import { useState } from 'react'
 import Taro from '@tarojs/taro'
 import { View, Button } from '@tarojs/components'
 import JSONTree from '@/components/jsontree'
+import "../../../../../styles/variables.scss";
 import './index.scss'
 
 /**
  * 基础-系统
- * @returns 
+ * @returns
  */
 const Index = () => {
   const [info, setInfo] = useState({});

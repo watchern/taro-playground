@@ -1,6 +1,6 @@
-@import "./styles/mixins.scss";
-@import "./styles/common.scss";
-@import "./styles/variables.scss";
+@use "./styles/mixins.scss";
+@use "./styles/common.scss";
+@use "./styles/variables.scss" as *;
 
 // h5
 .taro_page {

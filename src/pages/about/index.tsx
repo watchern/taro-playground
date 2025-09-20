@@ -13,6 +13,7 @@ import rnVersion from 'react-native/package.json';
 import { isWeb, isRN, loadWeb, loadMini, loadRn } from "@/utils/index";
 import List from '@/components/list/list';
 import logoPng from "@/assets/common/taro_logo.jpg";
+import "../../styles/variables.scss";
 import './index.scss';
 
 const { version: playgroundVersion, platform } = Taro.getSystemInfoSync()

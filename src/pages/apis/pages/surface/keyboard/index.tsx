@@ -1,12 +1,12 @@
 import { useCallback, useState } from 'react';
 import Taro from '@tarojs/taro';
 import { View, Button, Text, Input } from '@tarojs/components';
-
+import "../../../../../styles/variables.scss";
 import './index.scss'
 
 /**
  * 界面-键盘
- * @returns 
+ * @returns
  */
 const Index = () => {
   const [value, setValue] = useState('');

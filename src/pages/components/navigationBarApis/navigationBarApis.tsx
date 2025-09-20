@@ -2,11 +2,12 @@ import { useState } from 'react'
 import Taro from '@tarojs/taro'
 import { View, Button, Text } from '@tarojs/components'
 import { randomColor } from '@/utils/index'
+import "../../../styles/variables.scss"
 import './navigationBarApis.scss'
 
 /**
  * 界面-导航栏
- * @returns 
+ * @returns
  */
 const Index = () => {
   const [count, setCount] = useState(0);

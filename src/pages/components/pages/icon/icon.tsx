@@ -1,6 +1,7 @@
 import { View, Icon, ScrollView } from "@tarojs/components";
 
 import Header from "@/components/head/head";
+import "../../../../styles/mixins.scss";
 import './icon.scss';
 
 const PageView = () => {

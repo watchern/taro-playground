@@ -1,6 +1,6 @@
 import { RichText, View } from "@tarojs/components";
 import Header from "../../head/head";
-
+import "../../../../styles/variables.scss"
 import "./rich-text.scss";
 
 const Index = () => {

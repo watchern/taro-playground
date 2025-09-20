@@ -1,10 +1,11 @@
 import Taro from '@tarojs/taro'
 import { View, Button } from '@tarojs/components'
+import "../../../../../styles/variables.scss"
 import './index.scss'
 
 /**
  * 界面-交互
- * @returns 
+ * @returns
  */
 const Index = () => {
   return (

@@ -3,7 +3,7 @@ import { Fragment } from 'react'
 import { hairlineWidth } from '@/platform/index'
 import rightPng from "@/assets/iconpark/right.png"
 import infoPng from "@/assets/iconpark/info.png"
-
+import "../../../styles/variables.scss"
 import './list.scss'
 
 const Divider = () => {

@@ -1,4 +1,8 @@
 import { Component } from 'react'
+
+import "./styles/mixins.scss";
+import "./styles/common.scss";
+import "./styles/variables.scss";
 import './app.scss'
 
 class App extends Component {

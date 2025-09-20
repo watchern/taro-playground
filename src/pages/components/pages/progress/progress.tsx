@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { View, Progress, Button, Text } from '@tarojs/components'
 import Header from '@/components/head/head'
-
+import "../../../../styles/variables.scss"
 import './progress.scss'
 
 const PageView = () => {

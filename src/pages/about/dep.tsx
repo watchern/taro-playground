@@ -3,7 +3,7 @@ import { View } from '@tarojs/components';
 import Header from '@/components/head/head'
 import JSONTree from '@/components/jsontree'
 import dependence from '../../../package.json';
-
+import "../../styles/variables.scss";
 import './dep.scss';
 
 export default class Index extends Component<any, any> {
