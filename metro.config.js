@@ -20,7 +20,7 @@ const expoDefaultConfig = getExpoDefaultConfig(__dirname);
  */
 const config = {
   transformer: {
-    babelTransformerPath: require.resolve("react-native-sass-transformer")
+    // babelTransformerPath: require.resolve("react-native-sass-transformer")
   },
   sourceExts: ["scss", "sass"],
 };
