@@ -18,7 +18,12 @@ const expoDefaultConfig = getExpoDefaultConfig(__dirname);
  *
  * @type {import('metro-config').MetroConfig}
  */
-const config = {};
+const config = {
+  transformer: {
+    babelTransformerPath: require.resolve("react-native-sass-transformer")
+  },
+  sourceExts: ["scss", "sass"],
+};
 
 const finalConfig = {
   ...expoDefaultConfig,
