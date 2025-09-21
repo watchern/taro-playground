@@ -2,6 +2,9 @@ import { Component } from 'react'
 import SplashScreen from 'react-native-splash-screen'
 import { StatusBar } from 'react-native'
 
+import "./styles/mixins.scss";
+import "./styles/common.scss";
+import "./styles/variables.scss";
 import './app.scss'
 
 class App extends Component {
