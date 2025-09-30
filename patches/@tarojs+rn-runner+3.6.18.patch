@@ -1,0 +1,48 @@
+diff --git a/node_modules/@tarojs/rn-runner/dist/index.js b/node_modules/@tarojs/rn-runner/dist/index.js
+index 14b152b..c8a56c4 100644
+--- a/node_modules/@tarojs/rn-runner/dist/index.js
++++ b/node_modules/@tarojs/rn-runner/dist/index.js
+@@ -68,7 +68,8 @@ function build(_appPath, config) {
+             }
+             try {
+                 (0, child_process_1.spawn)(npxCmd, ['react-native', 'start'].concat(cliParams), {
+-                    stdio: 'inherit'
++                    stdio: 'inherit',
++                    shell: true
+                 });
+                 if (config.qr) {
+                     (0, rn_supporter_1.previewDev)({
+@@ -113,7 +114,8 @@ function build(_appPath, config) {
+                     '--entry-file',
+                     'index.js'
+                 ].concat(cliParams), {
+-                    stdio: 'inherit'
++                    stdio: 'inherit',
++                    shell: true
+                 });
+                 if (config.qr) {
+                     process.on('beforeExit', () => {
+diff --git a/node_modules/@tarojs/rn-runner/src/index.ts b/node_modules/@tarojs/rn-runner/src/index.ts
+index e8094cf..4613979 100644
+--- a/node_modules/@tarojs/rn-runner/src/index.ts
++++ b/node_modules/@tarojs/rn-runner/src/index.ts
+@@ -61,7 +61,8 @@ export default async function build (_appPath: string, config: any): Promise<any
+     }
+     try {
+       spawn(npxCmd, ['react-native', 'start'].concat(cliParams), {
+-        stdio: 'inherit'
++        stdio: 'inherit',
++        shell: true
+       })
+       if(config.qr) {
+         previewDev({
+@@ -108,7 +109,8 @@ export default async function build (_appPath: string, config: any): Promise<any
+         '--entry-file',
+         'index.js'
+       ].concat(cliParams), {
+-        stdio: 'inherit'
++        stdio: 'inherit',
++        shell: true
+       })
+       if(config.qr) {
+         process.on('beforeExit', () => {

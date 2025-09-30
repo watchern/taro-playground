@@ -14,6 +14,7 @@ on:
 env:
   # 应用的application_id
   APP_ID: ${{secrets.APP_ID}}
+  # 应用名称
   APP_NAME: Taro
   VERSION_NUMBER: 1.8.2
   BUILD_TYPE: debug
@@ -24,6 +25,7 @@ env:
   SIGNING_CERTIFICATE_PASSWORD: ${{secrets.DEBUG_SIGNING_CERTIFICATE_PASSWORD}}
   PROVISIONING_PROFILE_DATA: ${{secrets.DEBUG_PROVISIONING_PROFILE_DATA}}
 
+# 工作流作业
 jobs:
   assemble:
     runs-on: macos-13
@@ -31,7 +33,7 @@ jobs:
       - name: Checkout Project
         uses: actions/checkout@v2
       - name: Cache node_modules Folder
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ${{ github.workspace }}/node_modules
           key: ${{ runner.os }}-node_modules
@@ -40,7 +42,7 @@ jobs:
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
       - name: Cache Yarn
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         env:
           cache-name: yarn-cache
         with:
@@ -49,7 +51,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
       - name: Cache Pods
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ios/Pods
           key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
@@ -89,7 +91,7 @@ jobs:
           bundle update
           bundle exec fastlane build_dev
       - name: Upload Ios Products
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: app-${{ env.BUILD_TYPE }}
           path: |

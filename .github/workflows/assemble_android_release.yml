@@ -15,13 +15,13 @@ env:
   # 应用的application_id
   APP_ID: ${{secrets.APP_ID}}
   # 应用名称
-  APP_NAME: Taro
+  APP_NAME: TaroDemo
   # 打包类型
   BUILD_TYPE: release
   # 版本名称
   VERSION_NAME: 1.8.2
   # 版本号
-  VERSION_CODE: 18200
+  VERSION_CODE: 108200
   # 密钥库文件
   KEYSTORE_FILE: release.keystore
   # 密钥库口令
@@ -39,16 +39,17 @@ jobs:
       - name: Checkout Project
         uses: actions/checkout@v2
       - name: Cache node_modules Folder
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ${{ github.workspace }}/node_modules
           key: ${{ runner.os }}-node_modules
           restore-keys: ${{ runner.os }}-node_modules
       - name: Get Yarn Cache Directory Path
         id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
+        # run: echo "::set-output name=dir::$(yarn cache dir)"
+        run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
       - name: Cache Yarn
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         env:
           cache-name: yarn-cache
         with:
@@ -59,8 +60,19 @@ jobs:
       - name: Install Dependencies
         run: |
           yarn
+      - name: Build Taro React Native Bundle # APK打包无需此项
+        run: |
+          yarn build:rn --reset-cache --platform android
+        # if: ${{ env.BUILD_TYPE == 'release' }}
+        #   rm -rf ${{ github.workspace }}/android/app/src/main/assets/index.android.map
+      - name: Upload bundle Products
+        uses: actions/upload-artifact@v4
+        with:
+          name: bundle-android-${{ env.BUILD_TYPE }}
+          #/android/app/src/main/assets/index.android.bundle
+          path: ${{ github.workspace }}/android/app/src/main
       - name: Cache Gradle
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         env:
           cache-name: gradle-cache
         with:
@@ -68,18 +80,22 @@ jobs:
           key: ${{ runner.os }}-gradle
           restore-keys: |
             ${{ runner.os }}-gradle
+      - name: Set up Ruby
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: 3.2
       - name: Assemble Android ${{ env.BUILD_TYPE }}
         run: |
-          sudo apt install -y ruby-bundler
+          # sudo apt install -y ruby-bundler
           cd android
           bundle update
           bundle exec fastlane assemble
         env:
           KEYSTORE_FILE: ${{ github.workspace }}/android/app/${{ env.KEYSTORE_FILE }}
       - name: Upload Android Products
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
-          name: app-${{ env.BUILD_TYPE }}
+          name: app-android-${{ env.BUILD_TYPE }}
           path: ${{ github.workspace }}/android/app/build/outputs/apk/${{ env.BUILD_TYPE }}/app-${{ env.BUILD_TYPE }}.apk
       - name: Upload release assets
         uses: softprops/action-gh-release@v1

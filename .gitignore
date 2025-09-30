@@ -76,3 +76,4 @@ buck-out/
 # taro
 #
 .swc
+drawable-*

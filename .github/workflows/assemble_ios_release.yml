@@ -14,6 +14,7 @@ on:
 env:
   # 应用的application_id
   APP_ID: ${{secrets.APP_ID}}
+  # 应用名称
   APP_NAME: Taro
   VERSION_NUMBER: 1.8.2
   BUILD_NUMBER: 1.8.2.1
@@ -27,6 +28,7 @@ env:
   APP_STORE_CONNECT_USERNAME: ${{secrets.APP_STORE_CONNECT_USERNAME}}
   APP_STORE_CONNECT_PASSWORD: ${{secrets.APP_STORE_CONNECT_PASSWORD}}
 
+# 工作流作业
 jobs:
   assemble:
     runs-on: macos-13
@@ -37,7 +39,7 @@ jobs:
       - name: Checkout Project
         uses: actions/checkout@v2
       - name: Cache node_modules Folder
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ${{ github.workspace }}/node_modules
           key: ${{ runner.os }}-node_modules
@@ -46,7 +48,7 @@ jobs:
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
       - name: Cache Yarn
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         env:
           cache-name: yarn-cache
         with:
@@ -55,7 +57,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
       - name: Cache Pods
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ios/Pods
           key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
@@ -83,7 +85,7 @@ jobs:
           FL_UPDATE_PLIST_DISPLAY_NAME: ${{ env.APP_NAME }}
           FL_UPDATE_PLIST_PATH: taroDemo/Info.plist
           FL_VERSION_NUMBER_VERSION_NUMBER: ${{ env.VERSION_NUMBER }}
-          FL_BUILD_NUMBER_BUILD_NUMBER: ${{ env.VERSION_NUMBER }}.${{steps.date.outputs.timestamp}}
+          FL_BUILD_NUMBER_BUILD_NUMBER: ${{ env.BUILD_NUMBER }}.${{steps.date.outputs.timestamp}}
           FL_CODE_SIGN_IDENTITY: ${{ env.CODE_SIGN_IDENTITY }}
           FL_PROVISIONING_PROFILE_SPECIFIER: ${{ env.PROVISIONING_PROFILE_SPECIFIER }}
           FASTLANE_TEAM_ID: ${{ env.TEAM_ID }}
@@ -92,7 +94,7 @@ jobs:
           bundle update
           bundle exec fastlane build_release
       - name: Upload Ios Products
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: app-${{ env.BUILD_TYPE }}
           path: |
@@ -114,7 +116,7 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         with:
           prerelease: ${{ contains(github.ref, 'beta') }}
-          body: ${{ env.VERSION_NUMBER }}.${{steps.date.outputs.timestamp}}
+          body: ${{ env.BUILD_NUMBER }}.${{steps.date.outputs.timestamp}}
           files: |
             ios/app-${{ env.BUILD_TYPE }}.ipa
             ios/app-${{ env.BUILD_TYPE }}.app.dSYM.zip

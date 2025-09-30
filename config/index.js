@@ -7,16 +7,16 @@ const CIPluginOpt = {
     privateKeyPath: "key/private.appid.key"
   },
   tt: {
-    email: "字节小程序邮箱",
-    password: "字节小程序密码"
+    email: process.env.TT_EMAIL || "字节小程序邮箱",
+    password: process.env.TT_PWD || "字节小程序密码"
   },
   alipay: {
-    appid: "支付宝小程序appId",
-    toolId: "工具id",
+    appid: process.env.ALI_APPID || "支付宝小程序appId",
+    toolId: process.env.ALI_TOOL_ID || "工具id",
     privateKeyPath: "key/pkcs8-private-pem"
   },
   swan: {
-    token: "鉴权需要的token令牌"
+    token: process.env.SWAN_TOKEN || "鉴权需要的token令牌"
   },
   version,
   desc: "修复已知问题"
@@ -32,20 +32,18 @@ const config = {
   date: '2021-7-16',
   designWidth: 750,
   deviceRatio: {
+    375: 2,
     640: 2.34 / 2,
     750: 1,
     828: 1.81 / 2
   },
   sourceRoot: 'src',
-  outputRoot: 'dist',
+  outputRoot: `dist/${process.env.TARO_ENV}`,
   plugins,
-  defineConstants: {
-  },
+  defineConstants: {},
   copy: {
-    patterns: [
-    ],
-    options: {
-    }
+    patterns: [],
+    options: {}
   },
   framework: 'react',
   compiler: 'webpack5',
@@ -53,9 +51,7 @@ const config = {
     postcss: {
       pxtransform: {
         enable: true,
-        config: {
-
-        }
+        config: {}
       },
       url: {
         enable: true,
@@ -78,8 +74,7 @@ const config = {
     postcss: {
       autoprefixer: {
         enable: true,
-        config: {
-        }
+        config: {}
       },
       cssModules: {
         enable: false, // 默认为 false，如需使用 css modules 功能，则设为 true
@@ -93,15 +88,15 @@ const config = {
   rn: {
     appName: 'taroDemo',
     output: {
-      ios: './ios/main.jsbundle',
+      ios: './ios/main.js',
       iosAssetsDest: './ios',
-      android: './android/app/src/main/assets/index.android.bundle',
+      android: './android/app/src/main/assets/main.js',
       androidAssetsDest: './android/app/src/main/res',
       // iosSourceMapUrl: '',
       iosSourcemapOutput: './ios/main.map',
       // iosSourcemapSourcesRoot: '',
       // androidSourceMapUrl: '',
-      androidSourcemapOutput: './android/app/src/main/assets/index.android.map',
+      androidSourcemapOutput: './android/app/src/main/assets/main.map',
       // androidSourcemapSourcesRoot: '',
     },
     sass: {
