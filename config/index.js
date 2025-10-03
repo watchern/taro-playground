@@ -31,7 +31,7 @@ const plugins = process.env.TARO_ENV === 'weapp' ? [
 ] : ["@tarojs/plugin-html"]
 
 const config = {
-  projectName: 'myAppRN',
+  projectName: 'taroDemo',
   date: '2021-7-16',
   designWidth: 750,
   deviceRatio: {

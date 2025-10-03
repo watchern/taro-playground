@@ -1,6 +1,6 @@
 {
-  "short_name": "myAppRN",
-  "name": "myAppRN",
+  "short_name": "taroDemo",
+  "name": "taroDemo",
   "description": "myAppRNDesc",
   "scope": "/",
   "start_url": "/?source=pwa",
