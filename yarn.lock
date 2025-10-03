@@ -17839,21 +17839,10 @@ react-native-device-info@~10.3.0:
   resolved "https://registry.yarnpkg.com/react-native-device-info/-/react-native-device-info-10.3.1.tgz#e1f0ec4fa1426dd9d4bffc9521c0bf03de152b06"
   integrity sha512-KZU1luB7UrpRT8vYdWOoGJA0e2uAvF5J1Da90QMfLrtYBm1U0tbrlYO99qLCBRq7nQvBISlhqpqikzaS0vDYYw==
 
-"react-native-gesture-handler@2.12.1 - 2.13.4":
+"react-native-gesture-handler@2.12.1 - 2.13.4", react-native-gesture-handler@2.13.4, react-native-gesture-handler@~2.9.0:
   version "2.13.4"
   resolved "https://mirrors.tencent.com/npm/react-native-gesture-handler/-/react-native-gesture-handler-2.13.4.tgz#6a99384330278c4488bcfc7f1814be3e0d7401fd"
   integrity sha512-smpYOVbvWABpq2H+lmDnfOLCTH934aUPO1w2/pQXvm1j+M/vmGQmvgRDJOpXcks17HLtNNKXD6tcODf3aPqDfA==
-  dependencies:
-    "@egjs/hammerjs" "^2.0.17"
-    hoist-non-react-statics "^3.3.0"
-    invariant "^2.2.4"
-    lodash "^4.17.21"
-    prop-types "^15.7.2"
-
-react-native-gesture-handler@~2.9.0:
-  version "2.9.0"
-  resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-2.9.0.tgz#2f63812e523c646f25b9ad660fc6f75948e51241"
-  integrity sha512-a0BcH3Qb1tgVqUutc6d3VuWQkI1AM3+fJx8dkxzZs9t06qA27QgURYFoklpabuWpsUTzuKRpxleykp25E8m7tg==
   dependencies:
     "@egjs/hammerjs" "^2.0.17"
     hoist-non-react-statics "^3.3.0"
