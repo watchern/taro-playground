@@ -1,37 +1,40 @@
 {
+  "compileOnSave": false,
   "compilerOptions": {
-    "target": "es2017",
-    "module": "commonjs",
-    "removeComments": false,
-    "preserveConstEnums": true,
-    "moduleResolution": "node",
-    "experimentalDecorators": true,
-    "noImplicitAny": false,
+    "allowJs": true,
     "allowSyntheticDefaultImports": true,
-    "outDir": "lib",
+    "baseUrl": ".",
+    "experimentalDecorators": true,
+    "jsx": "react-jsx",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noImplicitAny": false,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "strictNullChecks": true,
-    "sourceMap": true,
-    "baseUrl": ".",
-    "rootDir": ".",
-    "jsx": "react-jsx",
-    "allowJs": true,
-    "resolveJsonModule": true,
-    "typeRoots": [
-      "node_modules/@types",
-      "global.d.ts"
-    ],
+    "outDir": "lib",
     "paths": {
-      "@/components/*": ["./src/pages/components/*"],
-      "@/utils/*": ["./src/pages/utils/*"],
-      "@/assets/*": ["./src/assets/*"],
-      "@/platform/*": ["./src/platform/*"],
-    }
+      "@/assets/*": [ "./src/assets/*" ],
+      "@/components/*": [ "./src/pages/components/*" ],
+      "@/platform/*": [ "./src/platform/*" ],
+      "@/utils/*": [ "./src/pages/utils/*" ]
+    },
+    "preserveConstEnums": true,
+    "removeComments": false,
+    "resolveJsonModule": true,
+    "rootDir": ".",
+    "sourceMap": true,
+    "strictNullChecks": true,
+    "target": "es2017",
+    "typeRoots": [
+      "node_modules/@types"
+    ]
   },
   "exclude": [
     "node_modules",
     "dist"
   ],
-  "compileOnSave": false
+  "include": [
+    "./src",
+    "./types"
+  ]
 }

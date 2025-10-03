@@ -1,3 +1,23 @@
+// // css 主题文件路径
+// // 默认主题
+// @import '@nutui/nutui-react-taro/dist/styles/themes/default.css';
+// // 默认暗黑主题
+// @import '@nutui/nutui-react-taro/dist/styles/themes/default-dark.css';
+// // JMAPP 主题
+// @import '@nutui/nutui-react-taro/dist/styles/themes/jmapp.css';
+// // JRKF 主题
+// @import '@nutui/nutui-react-taro/dist/styles/themes/jrkf.css';
+
+// scss 主题文件路径
+// 默认主题
+@import '@nutui/nutui-react-taro/dist/styles/theme-default.scss';
+// 默认暗黑主题
+// @import '@nutui/nutui-react-taro/dist/styles/theme-dark.scss';
+// JMAPP 主题
+// @import '@nutui/nutui-react-taro/dist/styles/theme-jmapp.scss';
+// JRKF 主题
+// @import '@nutui/nutui-react-taro/dist/styles/theme-jrkf.scss';
+
 @import "./styles/mixins.scss";
 @import "./styles/common.scss";
 @import "./styles/variables.scss";
