@@ -19,8 +19,7 @@
     "allowJs": true,
     "resolveJsonModule": true,
     "typeRoots": [
-      "node_modules/@types",
-      "global.d.ts"
+      "node_modules/@types"
     ],
     "paths": {
       "@/components/*": ["./src/pages/components/*"],
@@ -32,6 +31,10 @@
   "exclude": [
     "node_modules",
     "dist"
+  ],
+  "include": [
+    "./src",
+    "./types"
   ],
   "compileOnSave": false
 }

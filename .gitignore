@@ -63,6 +63,7 @@ buck-out/
 
 # Bundle artifact
 *.jsbundle
+*.jsmap
 
 # Ruby / CocoaPods
 /ios/Pods/
@@ -77,3 +78,4 @@ buck-out/
 #
 .swc
 drawable-*
+/.vscode
