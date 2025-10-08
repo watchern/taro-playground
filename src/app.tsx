@@ -1,7 +1,9 @@
 import {Component} from 'react'
 
 // 全局样式
-// import '@nutui/nutui-react-taro/dist/esm/styles/index.scss';
+// import '@nutui/nutui-react-taro/dist/styles/variables.scss';
+// import '@nutui/nutui-react-taro/dist/styles/theme-default.scss';
+import '@nutui/nutui-react-taro/dist/style.css';
  // NutUI 全局样式
 // Taro 条件编译：仅在 RN 环境保留以下导入
 /* #ifdef rn */
