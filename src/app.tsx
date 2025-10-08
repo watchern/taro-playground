@@ -1,5 +1,19 @@
 import { Component } from 'react'
+
+// 全局样式
 import './app.scss'
+
+if (process.env.TARO_ENV === 'h5') {
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/service-worker.js').then(registration => {
+        console.log('SW registered: ', registration);
+      }).catch(registrationError => {
+        console.log('SW registration failed: ', registrationError);
+      });
+    });
+  }
+}
 
 class App extends Component {
 
@@ -13,6 +27,7 @@ class App extends Component {
 
   // this.props.children 是将要会渲染的页面
   render () {
+    // @ts-ignore
     return this.props.children
   }
 }
