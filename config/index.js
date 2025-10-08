@@ -40,6 +40,12 @@ const config = {
     750: 1,
     828: 1.81 / 2
   },
+  sass: {
+    // @use rules must be written before any other rules.
+    additionalData: `
+    @use "sass:math";
+    `,
+  },
   postcss: {
     // 确保 Stylelint 与 Taro 构建流程集成
     stylelint: {
@@ -59,7 +65,7 @@ const config = {
   // 关键配置：配置 Service Worker 和 Workbox
   serviceWorker: {
     // 启用 Service Worker（开发环境下可根据需要开启）
-    enable: process.env.NODE_ENV === 'production' ? true : false,
+    enable: process.env.NODE_ENV === 'production',
 
     // Workbox GenerateSW 相关配置
     workbox: {
