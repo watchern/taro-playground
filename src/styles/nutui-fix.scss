@@ -1,0 +1,11 @@
+// 覆盖 NutUI Dialog 不兼容样式
+.nut-dialog {
+  background: none !important; // 移除 RN 不支持的 background 简写
+  backgroundColor: #fff !important; // 使用 RN 支持的 backgroundColor
+  padding: 16px !important; // 简化 padding
+}
+
+// 覆盖 NutUI Button 样式
+.nut-button {
+  border-radius: 8px !important; // 统一圆角（RN 不支持 % 单位）
+}

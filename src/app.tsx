@@ -1,7 +1,17 @@
-import { Component } from 'react'
+import {Component} from 'react'
 
 // 全局样式
-import './app.scss'
+// import '@nutui/nutui-react-taro/dist/esm/styles/index.scss';
+ // NutUI 全局样式
+if (process.env.TARO_ENV === 'rn') {
+  // @ts-ignore
+  import './styles/nutui-fix.scss'; // 放在 NutUI 样式之后，确保优先级
+  // @ts-ignore
+  import './app.scss'
+} else {
+  // @ts-ignore
+  import './app.scss'
+}
 
 if (process.env.TARO_ENV === 'h5') {
   if ('serviceWorker' in navigator) {

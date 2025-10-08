@@ -24,7 +24,9 @@ class App extends Component {
         backgroundColor="rgba(0, 0, 0, 0)"
         barStyle="dark-content"
       />
-      {this.props.children}
+      { // @ts-ignore
+        this.props.children
+      }
     </>
   }
 }
