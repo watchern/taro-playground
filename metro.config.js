@@ -1,6 +1,6 @@
 const { mergeConfig } = require('metro-config')
 const { getMetroConfig } = require('@tarojs/rn-supporter')
-// const { createHarmonyMetroConfig } = require('@react-native-oh/react-native-harmony/metro.config');
+const { createHarmonyMetroConfig } = require('@react-native-oh/react-native-harmony/metro.config');
 
 /**
  * Metro configuration
@@ -8,7 +8,7 @@ const { getMetroConfig } = require('@tarojs/rn-supporter')
  *
  * @type {import('metro-config').MetroConfig}
  */
-const config = {
+const customConfig = {
   // custom your metro config here
   // https://facebook.github.io/metro/docs/configuration
   resolver: {},
@@ -27,11 +27,14 @@ const config = {
     }
   }
 }
-const harmonyMetroConfig = {}//createHarmonyMetroConfig() || {}
 module.exports = (async function () {
+  // 1. 获取 Taro 原生配置（关键：包含 src 目录解析规则）
+  const taroMetroConfig = await getMetroConfig();
+  // 2. 创建 Harmony 配置
+  const harmonyMetroConfig = {}//createHarmonyMetroConfig() || {}
+  // 合并顺序：Taro 基础配置 → Harmony 配置 → 自定义配置
   return mergeConfig(
-    config,
-    await getMetroConfig(),
-    harmonyMetroConfig
-  )
+    customConfig,
+    mergeConfig(taroMetroConfig, harmonyMetroConfig)
+  );
 })()
