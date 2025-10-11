@@ -7,7 +7,7 @@ import './index.scss'
 
 /**
  * 网络-发起请求
- * @returns 
+ * @returns
  */
 const Index = () => {
   const [data, setData] = useState({});
@@ -46,7 +46,7 @@ const Index = () => {
           className="url-input"
           onInput={onInput}
           placeholder="输入请求的 url"
-        ></Input>
+        />
         <Button
           type="primary"
           onClick={_onRequest}
