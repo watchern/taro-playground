@@ -1,18 +1,26 @@
-import { getSystemInfoSync, navigateTo, showActionSheet } from '@tarojs/taro';
+import Taro, { getSystemInfoSync, navigateTo, showActionSheet } from '@tarojs/taro';
 import { loadWeb, loadMini, isWeb, isRN } from '@/utils/index';
 import { NativeModules } from '@/platform/index';
 
 import List from '@/components/list/list';
+import { useState } from "react";
+import { Button, View } from "@tarojs/components";
 
 const { platform } = getSystemInfoSync();
-const JSDELIVR = 'https://cdn.jsdelivr.net/gh';
+const JSDELIVR = 'JSDELIVR';
+const JSDELIVR_TYPES = {
+  cdn: 'cdn.jsdelivr.net',
+  fastly: 'fastly.jsdelivr.net',
+  gcore: 'gcore.jsdelivr.net',
+}
+
 const GITHUB = 'https://github.com';
 const GITHUB_RAW = 'https://raw.githubusercontent.com';
 
 const caseList = [
   {
     data: {
-      bundle: `${JSDELIVR}/wuba/Taro-Mortgage-Calculator@v2.0.0-beta.2/release/${platform}/main.js`,
+      bundle: `https://${JSDELIVR}/gh/wuba/Taro-Mortgage-Calculator@v2.0.0-beta.2/release/${platform}/main.js`,
       repository: `${GITHUB}/wuba/Taro-Mortgage-Calculator`,
       web: 'https://wuba.github.io/Taro-Mortgage-Calculator',
       mp: `${GITHUB_RAW}/wuba/Taro-Mortgage-Calculator/master/mini-qrcode.jpg`,
@@ -26,7 +34,7 @@ const caseList = [
   },
   {
     data: {
-      bundle: `${JSDELIVR}/zhiqingchen/rick-and-morty-wiki@v2.0.0-beta.1/release/${platform}/main.js`,
+      bundle: `https://${JSDELIVR}/gh/zhiqingchen/rick-and-morty-wiki@v2.0.0-beta.1/release/${platform}/main.js`,
       repository: `${GITHUB}/rick-and-morty-wiki/rick-and-morty-wiki`,
       web: 'https://rnwiki.cavano.vip',
       mp:
@@ -43,7 +51,7 @@ const caseList = [
 const uiList = [
   {
     data: {
-      bundle: `${JSDELIVR}/NervJS/taro-ui@v3.6.0-beta.3-rn/packages/taro-ui-demo-rn/release/${platform}/main.js`,
+      bundle: `https://${JSDELIVR}/gh/NervJS/taro-ui@v3.6.0-beta.3-rn/packages/taro-ui-demo-rn/release/${platform}/main.js`,
       repository: `${GITHUB}/NervJS/taro-ui`,
       title: 'Taro UI Demo',
       web: 'https://taro-ui.jd.com/h5/index.html',
@@ -129,15 +137,48 @@ function showInfo({ repository, title, web, mp }) {
 }
 
 export default function Index() {
+  const [sltJSDELIVR, setSltJSDELIVR] = useState('JSDELIVR');
   return (
     <>
+      <View className='view-item'>
+      <Button
+        className='api-page-btn'
+        type='primary'
+        onClick={() => Taro.showActionSheet({
+          itemList: Object.keys(JSDELIVR_TYPES),
+          success: function (res) {
+            console.log('res',res)
+            let JSDELIVR_TYPE = JSDELIVR_TYPES[Object.keys(JSDELIVR_TYPES)[res.tapIndex]]
+            setSltJSDELIVR(JSDELIVR_TYPE);
+            Taro.showToast({
+              title: JSON.stringify(res.tapIndex),
+              icon: 'none'
+            })
+          },
+          fail: function (res) {
+            setSltJSDELIVR('JSDELIVR');
+            Taro.showToast({
+              title: res.errMsg+'重置',
+              icon: 'none'
+            })
+          }
+        })}
+      >Choose-JSDELIVR_TYPE</Button>
+      </View>
+      <View className='select-box'>
+        当前选择: {sltJSDELIVR}
+      </View>
       <List
         title="案例"
         data={caseList}
         handleInfoClick={data => {
+          data.bundle = data.bundle.replace(JSDELIVR,sltJSDELIVR)
+          console.log('caseList-show',data)
           showInfo(data);
         }}
         handleItemClick={data => {
+          data.bundle = data.bundle.replace(JSDELIVR,sltJSDELIVR)
+          console.log('caseList-click',data)
           loadDemo(data);
         }}
       />
@@ -145,9 +186,13 @@ export default function Index() {
         title="UI"
         data={uiList}
         handleInfoClick={data => {
+          data.bundle = data.bundle.replace(JSDELIVR,sltJSDELIVR)
+          console.log('uiList-show',data)
           showInfo(data);
         }}
         handleItemClick={data => {
+          data.bundle = data.bundle.replace(JSDELIVR,sltJSDELIVR)
+          console.log('uiList-click',data)
           loadDemo(data);
         }}
       />
