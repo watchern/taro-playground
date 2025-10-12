@@ -1,20 +1,20 @@
 import React from "react";
 
 import {
-  View,
-  Text,
-  Label,
-  Radio,
-  Checkbox,
-  Slider,
-  Input,
   Button,
-  Picker,
-  RadioGroup,
-  Form,
+  Checkbox,
   CheckboxGroup,
+  Form,
+  Input,
+  Label,
+  Picker,
+  Radio,
+  RadioGroup,
+  ScrollView,
+  Slider,
   Switch,
-  ScrollView
+  Text,
+  View
 } from "@tarojs/components";
 import Header from "@/components/head/head";
 import JSONTree from '@/components/jsontree'
@@ -38,6 +38,8 @@ interface IState {
   checkItems: CheckItemsType[],
   sliderValue: string | number,
   inputValue: string,
+  localSel: string,
+  timeSel: string,
   selectDate: string,
   formData: any,
 }
@@ -70,11 +72,33 @@ export default class PageForm extends React.Component<any, IState> {
       }
     ],
     sliderValue: 50,
+    localSelectors: ['美国', '中国', '巴西', '日本'],
+    localSel: '美国',
+    timeSel: '12:01',
     selectDate: '2020-01-02',
     inputValue: '',
     formData: {}
   };
-
+  onHandleReset = e => {
+    console.log('onHandleReset',e)
+  };
+  onHandleSubmit = e => {
+    console.log('onHandleSubmit',e)
+    console.log(this.state)
+  };
+  onLocalChange = e => {
+    const pickIndex = e.detail.value;
+    console.log(e,e.detail)
+    this.setState({
+      localSel: this.state.localSelectors[pickIndex]
+    })
+  }
+  onTimeChange = e => {
+    const value = e.detail.value;
+    this.setState({
+      timeSel: value
+    })
+  }
   onHandleChange = e => {
     const value = e.detail.value;
     this.setState({
@@ -140,7 +164,7 @@ export default class PageForm extends React.Component<any, IState> {
   };
 
   render() {
-    const { enableSwitch, radioItems = [], checkItems = [], sliderValue, selectDate, inputValue, formData } = this.state;
+    const { enableSwitch, radioItems = [], checkItems = [], sliderValue, selectDate, localSelectors,localSel, timeSel, inputValue, formData } = this.state;
     return (
       <ScrollView className="components-page">
         <View className="components-page__header">
@@ -156,7 +180,7 @@ export default class PageForm extends React.Component<any, IState> {
                   name="switch"
                   className="form-switch"
                   checked={enableSwitch}
-                ></Switch>
+                />
               </View>
             </View>
             <View className="components-page__body-example example">
@@ -232,6 +256,31 @@ export default class PageForm extends React.Component<any, IState> {
                 </Picker>
               </View>
             </View>
+            <View className="components-page__body-example example">
+              <View className="example-header">普通地区选择器</View>
+              <View className="example-body">
+                <Picker mode='selector'
+                  name="localSel" range={localSelectors} onChange={this.onLocalChange}
+                >
+                  <View className='picker'>
+                    当前选择：{localSel}
+                  </View>
+                </Picker>
+              </View>
+            </View>
+            <View className="components-page__body-example example">
+              <View className="example-header">时间选择器</View>
+              <View className="example-body">
+                <Picker mode='time'
+                  value={timeSel}
+                  name="timeSel"  onChange={this.onTimeChange}
+                >
+                  <View className='picker'>
+                    当前选择：{timeSel}
+                  </View>
+                </Picker>
+              </View>
+            </View>
             <View className="components-page__body-example example example-input">
               <View className="example-header">input</View>
               <View className="example-input-example-body">
@@ -246,10 +295,15 @@ export default class PageForm extends React.Component<any, IState> {
             </View>
             <View className="components-page__body-example example">
               <View className="example-body" style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-around' }}>
-                <Button size="mini" formType="submit" type="primary">
+                <Button size="mini"
+                  onClick={this.onHandleSubmit} formType="submit" type="primary"
+                >
                   Submit
                 </Button>
-                <Button size="mini" formType="reset" type="default">
+                <Button size="mini"
+                  onClick={this.onHandleReset}
+                  formType="reset" type="default"
+                >
                   Reset
                 </Button>
               </View>

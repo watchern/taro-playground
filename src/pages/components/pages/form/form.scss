@@ -32,9 +32,12 @@
 
 .example-input-example-body {
   background-color: white;
-  margin-left: -40px;
-  margin-right: -40px;
-  padding: 20px;
+  padding: 15px 30px;
+  /*1rem=40px*/
+  //padding-left: 30px;
+  //padding-right: 30px;
+  //padding-top: 15px;
+  //padding-bottom: 15px;
 }
 .form-switch {
   margin: 0 auto;

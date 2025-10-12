@@ -25,7 +25,9 @@ const linkPrivacy = {
     loadWeb({
       url: 'https://api.fang.anjuke.com/wlk/message?id=2049',
       title: '隐私政策',
+      // 默认为"打开"
       right: '下载',
+      // 默认同上方url
       open: 'https://wos2.58cdn.com.cn/DeFazYxWvDti/frsupload/df70db603b651daa09a31b72f2b1b1f9.pdf'
     })
   },
